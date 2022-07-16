@@ -1,4 +1,4 @@
-# .NET Core API containerized in Docker and deployment in Heroku
+# .NET 6.0 API containerized in Docker and deployment in Heroku
 
 ## Introduction
 
