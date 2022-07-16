@@ -6,16 +6,16 @@ This repository aims to work as a template to deploy .NET Core apps to Heroku in
 
 ## Pre-requisites
 
-[NET SDK]https://dotnet.microsoft.com/en-us/download/dotnet/3.1
-[Docker Desktop]https://www.docker.com/products/docker-desktop/
-[Heroku CLI]https://devcenter.heroku.com/articles/heroku-cli
+[NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)  
+[Docker Desktop](https://www.docker.com/products/docker-desktop/)  
+[Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 
 ## Steps to run in Windows
 
 ### locally
 
 1. Open Visual Studio IDE.
-2. Select `local` git branch.
+2. Select `net6-local` git branch.
 3. Press F5 to run the solution (you can select either Docker or IIS Express as lauchers).
 
 Alternatively you can open a terminal window, navigate to the app's directory and execute `dotnet run`. Then you can open a browser and go to https://localhost:5001/swagger
