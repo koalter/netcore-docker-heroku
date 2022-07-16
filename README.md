@@ -6,9 +6,9 @@ This repository aims to work as a template to deploy .NET Core apps to Heroku in
 
 ## Pre-requisites
 
-[NET SDK]https://dotnet.microsoft.com/en-us/download/dotnet/3.1
-[Docker Desktop]https://www.docker.com/products/docker-desktop/
-[Heroku CLI]https://devcenter.heroku.com/articles/heroku-cli
+[NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/3.1)  
+[Docker Desktop](https://www.docker.com/products/docker-desktop/)  
+[Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 
 ## Steps to run in Windows
 
