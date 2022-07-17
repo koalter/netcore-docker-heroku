@@ -1,4 +1,4 @@
-namespace netcore_docker_heroku
+namespace netcore_docker_heroku.API
 {
     public class Program
     {

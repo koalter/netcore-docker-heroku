@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using netcore_docker_heroku.Models;
 
-namespace netcore_docker_heroku.Controllers
+namespace netcore_docker_heroku.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

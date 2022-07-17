@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>netcore_docker_heroku</RootNamespace>
+    <RootNamespace>netcore_docker_heroku.API</RootNamespace>
     <UserSecretsId>aa76e9f1-de93-4cef-b27a-358f499eeebd</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
@@ -14,6 +14,10 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Models\netcore-docker-heroku.Models.csproj" />
   </ItemGroup>
 
 </Project>
