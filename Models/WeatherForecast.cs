@@ -1,4 +1,4 @@
-namespace netcore_docker_heroku
+namespace netcore_docker_heroku.Models
 {
     public class WeatherForecast
     {
