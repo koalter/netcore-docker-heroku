@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netcore-docker-heroku", "netcore-docker-heroku.csproj", "{7EE93AAA-78FE-4761-A32D-82AF13105F91}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netcore-docker-heroku.API", "API\netcore-docker-heroku.API.csproj", "{7EE93AAA-78FE-4761-A32D-82AF13105F91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
