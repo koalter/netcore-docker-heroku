@@ -7,12 +7,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using netcore_docker_heroku.API.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace netcore_docker_heroku
+namespace netcore_docker_heroku.API
 {
     public class Startup
     {
@@ -32,8 +33,10 @@ namespace netcore_docker_heroku
             services.AddMvc();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc(version, new OpenApiInfo { Title = "NETCore.Docker.Heroku", Version = version });
+                c.SwaggerDoc(version, new OpenApiInfo { Title = "NETCore-Docker-Heroku.API", Version = version });
             });
+
+            services.AddInjections();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +46,7 @@ namespace netcore_docker_heroku
             {
                 app.UseSwaggerUI(c =>
                 {
-                    c.SwaggerEndpoint("v1/swagger.json", "NETCore.Docker.Heroku V1");
+                    c.SwaggerEndpoint("v1/swagger.json", "NETCore-Docker-Heroku.API V1");
                 });
 
                 app.UseDeveloperExceptionPage();
