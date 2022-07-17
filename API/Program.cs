@@ -1,3 +1,5 @@
+using netcore_docker_heroku.API.Extensions;
+
 namespace netcore_docker_heroku.API
 {
     public class Program
@@ -12,6 +14,7 @@ namespace netcore_docker_heroku.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddInjections();
 
             var app = builder.Build();
 

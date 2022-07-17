@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using netcore_docker_heroku.API.Interfaces;
 using netcore_docker_heroku.Models;
 
 namespace netcore_docker_heroku.API.Controllers
@@ -7,28 +8,35 @@ namespace netcore_docker_heroku.API.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IWeatherForecastService _weatherForecastService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger,
+                                         IWeatherForecastService weatherForecastService)
         {
             _logger = logger;
+            _weatherForecastService = weatherForecastService;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        [Produces(typeof(IEnumerable<WeatherForecast>))]
+        public IActionResult Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            try
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+                var result = this._weatherForecastService.GetWeathers();
+
+                if (result is null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
