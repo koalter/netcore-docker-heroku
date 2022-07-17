@@ -38,5 +38,27 @@ namespace netcore_docker_heroku.API.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet]
+        [Route("async")]
+        [Produces(typeof(IEnumerable<WeatherForecast>))]
+        public async Task<IActionResult> GetAsync()
+        {
+            try
+            {
+                var result = await this._weatherForecastService.GetWeathersAsync();
+
+                if (result is null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
