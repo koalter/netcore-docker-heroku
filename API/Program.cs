@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace netcore_docker_heroku
+namespace netcore_docker_heroku.API
 {
     public class Program
     {

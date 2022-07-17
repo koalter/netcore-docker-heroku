@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["netcore-docker-heroku.csproj", "."]
-RUN dotnet restore "./netcore-docker-heroku.csproj"
+COPY ["netcore-docker-heroku.API.csproj", "."]
+RUN dotnet restore "./netcore-docker-heroku.API.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "netcore-docker-heroku.csproj" -c Release -o /app/build
+RUN dotnet build "netcore-docker-heroku.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "netcore-docker-heroku.csproj" -c Release -o /app/publish
+RUN dotnet publish "netcore-docker-heroku.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "netcore-docker-heroku.dll"]
+ENTRYPOINT ["dotnet", "netcore-docker-heroku.API.dll"]
