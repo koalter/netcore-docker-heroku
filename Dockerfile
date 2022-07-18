@@ -5,14 +5,14 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["netcore-docker-heroku.csproj", "."]
-RUN dotnet restore "./netcore-docker-heroku.csproj"
+COPY ["./API/netcore-docker-heroku.API.csproj", "."]
+RUN dotnet restore "./netcore-docker-heroku.API.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "netcore-docker-heroku.csproj" -c Release -o /app/build
+RUN dotnet build "./API/netcore-docker-heroku.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "netcore-docker-heroku.csproj" -c Release -o /app/publish
+RUN dotnet publish "./API/netcore-docker-heroku.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
@@ -20,4 +20,4 @@ COPY --from=publish /app/publish .
 
 # Run the app.  CMD is required to run on Heroku
 # $PORT is set by Heroku
-CMD ASPNETCORE_URLS=http://*:$PORT dotnet netcore-docker-heroku.dll
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet netcore-docker-heroku.API.dll
